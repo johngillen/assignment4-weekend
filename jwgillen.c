@@ -1,11 +1,14 @@
+/*
+ * Name: John Gillen
+ * Assignment: Assignment4-weekend
+ */
+
 #include <stdio.h>
 #include <stdlib.h>
-#include <string.h>
 
 char *cipher(char *string, char key)
 {
     char k = (key - 'a') % 26;
-    // john G helped with malloc()
     char* s = malloc(sizeof(string) + 1);
     s = string;
 
