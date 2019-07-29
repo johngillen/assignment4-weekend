@@ -14,7 +14,7 @@ char *cipher(char *string, char key)
 
     for (int i = 0; s[i] != '\0'; i++) 
     {
-        if ('a' <= s[i] <= 'z')  
+        if ('a' <= s[i] && s[i] <= 'z')  
         {
             if (s[i] + k > (int)'z')
             {
@@ -37,10 +37,13 @@ int main(int argc, char const *argv[])
     scanf("%s", plaintext);
 
     char key;
-    printf("Enter key: ");
+    printf("Encryption key: ");
     scanf(" %c", &key);
+
+    char ikey = (('a' - key) + 26) % 26 + 'a';
+    printf("Decryption key: %c\n", ikey);
     
-    printf("%s\n", cipher(plaintext, key));
+    printf("Ciphertext: %s\n", cipher(plaintext, key));
 
     return 0;
 }
